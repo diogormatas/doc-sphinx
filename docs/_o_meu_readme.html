@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>O Meu Readme &mdash; doc-webotron 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> doc-webotron
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html#contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="help.html">Need Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">shotty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="o_meu_readme.html">O Meu Readme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="o_meu_readme.html#key-data-project-types-and-considerations">Key Data Project Types and Considerations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="o_meu_readme.html#directory-structure">Directory structure</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">doc-webotron</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>O Meu Readme</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/_o_meu_readme.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="o-meu-readme">
+<h1>O Meu Readme<a class="headerlink" href="#o-meu-readme" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="key-data-project-types-and-considerations">
+<h1>Key Data Project Types and Considerations<a class="headerlink" href="#key-data-project-types-and-considerations" title="Permalink to this headline">¶</a></h1>
+<p>The basis for any successful data project is a clear understanding of what you’re tasked to build and then understanding the major items that you need to consider in order to design a solid solution. We categorize data projects into three types that from our experience will typify many data projects. This categorization then allows us to explore the primary items we need to consider before starting on implementation. Not every project will fall neatly into one of these categories, and some projects might straddle these categories, but we feel that these project types will provide a useful framework for understanding your data use cases.</p>
+<div class="section" id="major-data-project-types">
+<h2>Major Data Project Types<a class="headerlink" href="#major-data-project-types" title="Permalink to this headline">¶</a></h2>
+<p>Let’s begin by describing the three project types that we use to categorize data projects:</p>
+<ul class="simple">
+<li><p><strong>Data pipelines and data staging:</strong> We can think of these as Extract, Transform, and Load (ETL)-type projects; in other words, these are projects that involve the collection, staging, storage, modelling, and so on of datasets. These are essentially projects that provide the basis for performing subsequent analysis and processing of data.</p></li>
+<li><p><strong>Data processing and analysis:</strong> These are projects that end in providing some kind of actionable value. This might be the creation of reports, creation and execution of machine learning models, and so forth.</p></li>
+<li><p><strong>Applications:</strong> A data framework that’s meant to support live operational needs of application; for example, the data back-end for web and mobile applications or dashboards.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="directory-structure">
+<h1>Directory structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h1>
+<p>This is the directory structure that every Data Science and Engineering project must obey accordingly to it’s project type.</p>
+<div class="section" id="data-pipelines-and-data-staging">
+<h2>Data pipelines and data staging<a class="headerlink" href="#data-pipelines-and-data-staging" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>├── data
+│   ├── external: Data from third party sources
+│   ├── intermediate: Intermediate data that has been transformed.
+│   ├── processed: The final, canonical data sets for modeling.
+│   └── raw: The original, immutable data dump.
+│
+├── docs: A default Sphinx project; see sphinx-doc.org for details.
+│
+├── references: Data dictionaries, manuals, and all other explanatory materials.
+│
+├── reports: Generated analysis as HTML, PDF, LaTeX, etc.
+│   └── figures: Generated graphics and figures to be used in reporting.
+│
+├── src: Source code for use in this project.
+│   ├── data: Scripts to download or generate data.
+│   ├── features: Scripts to turn raw data into features for modeling.
+│   ├── visualization: Scripts to create exploratory and results oriented visualizations.
+│   └── __init__.py: Makes src a Python module.
+│
+├── tests: Unit and integration tests. This must replicate the same structure of src.
+│
+├── CHANGELOG.md: Log about deployments versions and changes.
+├── Makefile: Makefile with commands like &#39;make data&#39; or &#39;make train&#39;.
+├── README.md: The top-level README for developers using this project.
+├── requirements.txt: The requirements file for reproducing the analysis environment, e.g. generated with &#39;pip freeze &gt; requirements.txt&#39;.
+└── setup.py: Make this project pip installable with &#39;pip install -e&#39;.
+</pre></div>
+</div>
+<p>The template repository to <strong>data pipelines and data staging</strong> projects is <a class="reference external" href="https://gitlab.com/noesisportugal/dse/templates/data-pipelines-and-data-staging">here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Diogo Reis
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

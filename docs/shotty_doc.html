@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.6.3" />
+<title>shotty.shotty_doc API documentation</title>
+<meta name="description" content="" />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase;cursor:pointer}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>shotty.shotty_doc</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">import boto3
+import botocore
+import click
+
+
+session = boto3.Session()
+ec2 = session.resource(&#39;ec2&#39;)
+
+def filter_instances(project):
+
+    &#34;&#34;&#34;Example function with types documented in the docstring.
+
+    `PEP 484`_ type annotations are supported. If attribute, parameter, and
+    return types are annotated according to `PEP 484`_, they do not need to be
+    included in the docstring:
+
+    Args:
+        param1 (int): The first parameter.
+        param2 (str): The second parameter.
+
+    Returns:
+        bool: The return value. True for success, False otherwise.
+
+    .. _PEP 484:
+        https://www.python.org/dev/peps/pep-0484/
+
+    &#34;&#34;&#34;
+
+    instances = []
+
+    if project:
+        filters = [{&#39;Name&#39;:&#39;tag:Project&#39;, &#39;Values&#39;:[project]}]
+        instances = ec2.instances.filter(Filters=filters)
+    else:
+        instances = ec2.instances.all()
+
+    return instances
+
+def has_pending_snapshot(volume):
+    snapshots = list(volume.snapshots.all())
+    return snapshots and snapshots[0].state == &#39;pending&#39;
+
+@click.group()
+def cli():
+    &#34;&#34;&#34;Shotty manages snapshots&#34;&#34;&#34;
+
+@cli.group(&#39;snapshots&#39;)
+def snapshots():
+    &#34;&#34;&#34;Commands for snapshots&#34;&#34;&#34;
+
+@snapshots.command(&#39;list&#39;)
+@click.option(&#39;--project&#39;, default=None,
+   help=&#34;Only snapshots for project (tag Project:&lt;name&gt;)&#34;)
+@click.option(&#39;--all&#39;, &#39;list_all&#39;, default=False, is_flag=True,
+   help=&#34;List all snapshots for each volume, not just the most recent&#34;)
+def list_snapshots(project, list_all):
+    &#34;List EC2 snapshots&#34;
+
+    instances = filter_instances(project)
+
+    for i in instances:
+        for v in i.volumes.all():
+            for s in v.snapshots.all():
+                print(&#34;, &#34;.join((
+                    s.id,
+                    v.id,
+                    i.id,
+                    s.state,
+                    s.progress,
+                    s.start_time.strftime(&#34;%c&#34;)
+                )))
+
+                if s.state == &#39;completed&#39; and not list_all:
+                    break
+
+    return
+
+@cli.group(&#39;volumes&#39;)
+def volumes():
+    &#34;&#34;&#34;Commands for volumes&#34;&#34;&#34;
+
+@volumes.command(&#39;list&#39;)
+@click.option(&#39;--project&#39;, default=None,
+   help=&#34;Only volumes for project (tag Project:&lt;name&gt;)&#34;)
+
+def list_volumes(project):
+    &#34;List EC2 volumes&#34;
+
+    instances = filter_instances(project)
+
+    for i in instances:
+        for v in i.volumes.all():
+            print(&#34;, &#34;.join((
+                v.id,
+                i.id,
+                v.state,
+                str(v.size) + &#34;GiB&#34;,
+                v.encrypted and &#34;Encrypted&#34; or &#34;Not Encrypted&#34;
+            )))
+
+    return
+
+@cli.group(&#39;instances&#39;)
+def instances():
+    &#34;&#34;&#34;Commands for instances&#34;&#34;&#34;
+
+@instances.command(&#39;snapshot&#39;,
+    help=&#34;Create snapshots of all volumes&#34;)
+@click.option(&#39;--project&#39;, default=None,
+    help=&#34;Only instances for project (tag Project:&lt;name&gt;)&#34;)
+def create_snapshots(project):
+    &#34;Create snapshots for EC2 instances&#34;
+
+    instances = filter_instances(project)
+
+    for i in instances:
+        print(&#34;Stopping {}...&#34;.format(i.id))
+
+        i.stop()
+        i.wait_until_stopped()
+
+        for v in i.volumes.all():
+            if has_pending_snapshot(v):
+                print(&#34;  Skipping {}, snapshot already in progress&#34;.format(v.id))
+                continue
+
+            print(&#34;  Creating snapshot of {}&#34;.format(v.id))
+            v.create_snapshot(Description=&#34;Created by SnapshotAlyzer 30000&#34;)
+
+        print(&#34;Starting {}...&#34;.format(i.id))
+
+        i.start()
+        i.wait_until_running()
+
+    print(&#34;Job&#39;s done!&#34;)
+    return
+
+@instances.command(&#39;list&#39;)
+@click.option(&#39;--project&#39;, default=None,
+   help=&#34;Only instances for project (tag Project:&lt;name&gt;)&#34;)
+
+def list_instances(project):
+    &#34;List EC2 instances&#34;
+    instances = filter_instances(project)
+
+    for i in instances:
+        tags = { t[&#39;Key&#39;]: t[&#39;Value&#39;] for t in i.tags or [] }
+        print(&#39;, &#39;.join((
+            i.id,
+            i.instance_type,
+            i.placement[&#39;AvailabilityZone&#39;],
+            i.state[&#39;Name&#39;],
+            i.public_dns_name,
+            tags.get(&#39;Project&#39;, &#39;&lt;no project&gt;&#39;)
+        )))
+
+    return
+
+@instances.command(&#39;stop&#39;)
+@click.option(&#39;--project&#39;, default=None,
+    help=&#39;Only instances for project&#39;)
+
+def stop_instances(project):
+    &#34;Stop EC2 instances&#34;
+
+    instances = filter_instances(project)
+
+    for i in instances:
+        print(&#34;Stopping {0}...&#34;.format(i.id))
+        try:
+            i.stop()
+        except botocore.exceptions.ClientError as e:
+            print(&#34; Could not stop {}. &#34;.format(i.id) + str(e))
+            continue
+
+    return
+
+@instances.command(&#39;start&#39;)
+@click.option(&#39;--project&#39;, default=None,
+    help=&#39;Only instances for project&#39;)
+
+def start_instances(project):
+    &#34;Start EC2 instances&#34;
+
+    instances = filter_instances(project)
+
+    for i in instances:
+        print(&#34;starting {0}...&#34;.format(i.id))
+        try:
+            i.start()
+        except botocore.exceptions.ClientError as e:
+            print(&#34; Could not start {}. &#34;.format(i.id) + str(e))
+            continue
+
+    return
+
+if __name__ == &#39;__main__&#39;:
+    cli()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="shotty.shotty_doc.filter_instances"><code class="name flex">
+<span>def <span class="ident">filter_instances</span></span>(<span>project)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Example function with types documented in the docstring.</p>
+<p><code>PEP 484</code><em> type annotations are supported. If attribute, parameter, and
+return types are annotated according to <code>PEP 484</code></em>, they do not need to be
+included in the docstring:</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>param1</code></strong> :&ensp;<code>int</code></dt>
+<dd>The first parameter.</dd>
+<dt><strong><code>param2</code></strong> :&ensp;<code>str</code></dt>
+<dd>The second parameter.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>bool</code></strong></dt>
+<dd>The return value. True for success, False otherwise.</dd>
+</dl>
+<p>.. _PEP 484:
+<a href="https://www.python.org/dev/peps/pep-0484/">https://www.python.org/dev/peps/pep-0484/</a></p></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def filter_instances(project):
+
+    &#34;&#34;&#34;Example function with types documented in the docstring.
+
+    `PEP 484`_ type annotations are supported. If attribute, parameter, and
+    return types are annotated according to `PEP 484`_, they do not need to be
+    included in the docstring:
+
+    Args:
+        param1 (int): The first parameter.
+        param2 (str): The second parameter.
+
+    Returns:
+        bool: The return value. True for success, False otherwise.
+
+    .. _PEP 484:
+        https://www.python.org/dev/peps/pep-0484/
+
+    &#34;&#34;&#34;
+
+    instances = []
+
+    if project:
+        filters = [{&#39;Name&#39;:&#39;tag:Project&#39;, &#39;Values&#39;:[project]}]
+        instances = ec2.instances.filter(Filters=filters)
+    else:
+        instances = ec2.instances.all()
+
+    return instances</code></pre>
+</details>
+</dd>
+<dt id="shotty.shotty_doc.has_pending_snapshot"><code class="name flex">
+<span>def <span class="ident">has_pending_snapshot</span></span>(<span>volume)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>Source code</summary>
+<pre><code class="python">def has_pending_snapshot(volume):
+    snapshots = list(volume.snapshots.all())
+    return snapshots and snapshots[0].state == &#39;pending&#39;</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="shotty" href="index.html">shotty</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="shotty.shotty_doc.filter_instances" href="#shotty.shotty_doc.filter_instances">filter_instances</a></code></li>
+<li><code><a title="shotty.shotty_doc.has_pending_snapshot" href="#shotty.shotty_doc.has_pending_snapshot">has_pending_snapshot</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.6.3</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
