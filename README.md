@@ -19,3 +19,28 @@ shotty uses the configuration file created by the AWS CLI. e.g.
 *command* is instances, volumes, or snapshots
 *subcommand* - dependes on command
 *project* is optional
+
+
+
+```
+docs/
+├── Makefile
+|
+├── build
+│   ├── html
+│         ├── index.html
+|
+├── source
+│   ├── conf.py
+│   ├── connection.rst
+│   ├── index.rst
+│   ├── message.rst
+│   ├── modules.rst
+│   └── static
+│       ├── architecture.md
+│       ├── data-dictionary.md
+│       ├── faq.md
+│       ├── help.md
+│       └── project-structure.md
+
+```
